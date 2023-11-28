@@ -13,6 +13,9 @@ const hostname = process.env.HOST_NAME || "localhost";
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// config static files
+app.use(express.static(path.join(__dirname, "public")));
+
 // Khai báo routes
 app.get("/", (req, res) => {
     res.send("Hello World by from CiKey!");
