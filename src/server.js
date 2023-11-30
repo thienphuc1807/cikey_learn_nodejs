@@ -14,6 +14,10 @@ connection.query("SELECT * FROM Users u", function (err, results, fields) {
     console.log(results); // results contains rows returned by server
 });
 
+// config req.body
+app.use(express.json()); // to support JSON-encoded bodies
+app.use(express.urlencoded()); // to support URL-encoded bodies
+
 // config template engine and static files
 configViewEngine(app);
 
