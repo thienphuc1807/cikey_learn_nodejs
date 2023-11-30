@@ -1,8 +1,47 @@
-.T1 {
-    width: 500px;
-    margin: auto;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.T1 img {
-    width: 100%;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+fieldset {
+    width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 0;
+}
+
+input[type="submit"]:hover {
+    opacity: 50%;
 }
