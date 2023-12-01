@@ -3,6 +3,7 @@ const {
     getAllUsers,
     getUserById,
     updateUserById,
+    deleteUserById,
 } = require("../services/CRUDServices");
 
 const getHomePage = async (req, res) => {
@@ -53,10 +54,24 @@ const updateUser = async (req, res) => {
     res.redirect("/");
 };
 
+const getDeleteUserPage = async (req, res) => {
+    const userId = req.params.id;
+    let user = await getUserById(userId);
+    return res.render("deleteUser", { userDelete: user });
+};
+
+const deleteUser = async (req, res) => {
+    const deleteId = req.body.userID;
+    await deleteUserById(deleteId);
+    res.redirect("/");
+};
+
 module.exports = {
     getHomePage,
     addNewUser,
     getCreateUserPage,
     getUpdateUserPage,
     updateUser,
+    getDeleteUserPage,
+    deleteUser,
 };

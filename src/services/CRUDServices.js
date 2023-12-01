@@ -26,9 +26,17 @@ const updateUserById = async (name, email, city, userId) => {
         [email, name, city, userId]
     );
 };
+const deleteUserById = async (userId) => {
+    const promisePool = connection.promise();
+    const [rows, fields] = await promisePool.query(
+        `DELETE FROM Users WHERE id = ?`,
+        [userId]
+    );
+};
 
 module.exports = {
     getAllUsers,
     getUserById,
     updateUserById,
+    deleteUserById,
 };
