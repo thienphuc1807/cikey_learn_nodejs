@@ -28,7 +28,8 @@
                 <td><%= user.email %></td>
                 <td><%= user.city %></td>
                 <td class="btn-group">
-                    <a href="/update">Update</a><a href="/delete">Delete</a>
+                    <a href="/update/<%= user.id %>">Update</a
+                    ><a href="/delete">Delete</a>
                 </td>
             </tr>
             <% }); %>
