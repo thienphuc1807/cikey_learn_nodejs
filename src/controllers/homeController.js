@@ -9,6 +9,9 @@ const getHomePage = async (req, res) => {
 const getCreateUserPage = (req, res) => {
     return res.render("createUser");
 };
+const getUpdateUserPage = (req, res) => {
+    return res.render("updateUser");
+};
 
 // add new user into database
 const addNewUser = async (req, res) => {
@@ -37,4 +40,5 @@ module.exports = {
     getHomePage,
     addNewUser,
     getCreateUserPage,
+    getUpdateUserPage,
 };

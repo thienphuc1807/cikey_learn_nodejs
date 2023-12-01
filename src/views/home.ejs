@@ -19,6 +19,7 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>City</th>
+                <th>Action</th>
             </tr>
             <% listUser.forEach((user) => { %>
             <tr class="list-group">
@@ -26,6 +27,9 @@
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
                 <td><%= user.city %></td>
+                <td class="btn-group">
+                    <a href="/update">Update</a><a href="/delete">Delete</a>
+                </td>
             </tr>
             <% }); %>
         </table>
