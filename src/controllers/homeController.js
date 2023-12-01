@@ -1,5 +1,5 @@
 const connection = require("../config/database");
-const { getAllUsers } = require("../services/CRUDServices");
+const { getAllUsers, getUserById } = require("../services/CRUDServices");
 
 const getHomePage = async (req, res) => {
     let rows = await getAllUsers();
@@ -9,9 +9,10 @@ const getHomePage = async (req, res) => {
 const getCreateUserPage = (req, res) => {
     return res.render("createUser");
 };
-const getUpdateUserPage = (req, res) => {
+const getUpdateUserPage = async (req, res) => {
     const userId = req.params.id;
-    return res.render("updateUser");
+    let user = await getUserById(userId);
+    return res.render("updateUser", { userDetail: user });
 };
 
 // add new user into database
@@ -34,7 +35,7 @@ const addNewUser = async (req, res) => {
         `INSERT INTO Users (email,name,city) VALUES (?, ?, ?)`,
         [email, name, city]
     );
-    res.send("Success");
+    return res.send("Success");
 };
 
 module.exports = {
