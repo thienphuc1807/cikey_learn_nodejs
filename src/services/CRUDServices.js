@@ -17,7 +17,18 @@ const getUserById = async (userId) => {
     return user;
 };
 
+const updateUserById = async (name, email, city, userId) => {
+    const promisePool = connection.promise();
+    const [rows, fields] = await promisePool.query(
+        `UPDATE Users
+        SET email = ?, name = ?, city = ?
+        WHERE id = ?`,
+        [email, name, city, userId]
+    );
+};
+
 module.exports = {
     getAllUsers,
     getUserById,
+    updateUserById,
 };
